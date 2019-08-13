@@ -9,18 +9,20 @@ A GitHub Action to deploy to Firebase Hosting
 Example workflow
 
 ```
-name: Deploy to Firebase
-on: [push]
-push:
-  branches:
-  - master
+name: Build and Deploy
+on:
+  push:
+    branches:
+    - master
 jobs:
-  build:
-    [ some build jobs ]
-  deploy:
-    name: deploy
+  main:
+    name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
+    - name: Check out code
+      uses: actions/checkout@master
+    - name: Build Hugo
+      uses: lowply/build-hugo@v2
     - name: Deploy to Firebase
       uses: lowply/deploy-firebase@v2
       env:
