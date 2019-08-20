@@ -1,19 +1,22 @@
 #!/bin/sh
 
-if [ -z "$FIREBASE_TOKEN" ]; then
+if [ -z "${FIREBASE_TOKEN}" ]; then
     echo "FIREBASE_TOKEN is missing"
     exit 1
 fi
 
-if [ ! -f ".firebaserc" ]; then
-    echo ".firebaserc is missing"
+if [ -z "${FIREBASE_PROJECT}" ]; then
+    echo "FIREBASE_PROJECT is missing"
     exit 1
 fi
 
 if [ "${GITHUB_REF}" != "refs/heads/master" ]; then
     echo "Branch: ${GITHUB_REF}"
     echo "Aborting non-master branch deployment"
-    exit 78
+    exit 1
 fi
 
-firebase deploy --only hosting
+firebase deploy \
+    -m "${GITHUB_SHA}" \
+    --project ${FIREBASE_PROJECT} \
+    --only hosting
