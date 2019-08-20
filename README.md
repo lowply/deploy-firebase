@@ -22,9 +22,10 @@ jobs:
     - name: Check out code
       uses: actions/checkout@master
     - name: Build Hugo
-      uses: lowply/build-hugo@v2
+      uses: lowply/build-hugo@v0.0.2
     - name: Deploy to Firebase
-      uses: lowply/deploy-firebase@v2
+      uses: lowply/deploy-firebase@v0.0.2
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        FIREBASE_PROJECT: name-of-the-project
 ```
