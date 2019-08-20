@@ -3,8 +3,9 @@
 A GitHub Action to deploy to Firebase Hosting
 
 - This action only deploys the `master` branch
-- Make sure you have the `.firebaserc` and `firebase.json` files in the repository
-- Get the Firebase token by running `firebase login:ci` and [store it](https://help.github.com/en/articles/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables) into the `FIREBASE_TOKEN` secret in the workflow
+- Make sure you have the `firebase.json` file in the repository
+- Get the Firebase token by running `firebase login:ci` and [store it](https://help.github.com/en/articles/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables) as the `FIREBASE_TOKEN` secret
+- Set the project name in the `FIREBASE_PROJECT` env var
 
 Example workflow
 
