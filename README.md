@@ -23,7 +23,7 @@ jobs:
     - name: Check out code
       uses: actions/checkout@master
     - name: Build Hugo
-      uses: lowply/build-hugo@v0.0.2
+      uses: lowply/build-hugo@v0.68.3
     - name: Deploy to Firebase
       uses: lowply/deploy-firebase@v0.0.2
       env:
