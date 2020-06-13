@@ -10,9 +10,13 @@ if [ -z "${FIREBASE_PROJECT}" ]; then
     exit 1
 fi
 
-if [ "${GITHUB_REF}" != "refs/heads/master" ]; then
-    echo "Branch: ${GITHUB_REF}"
-    echo "Aborting non-master branch deployment"
+if [ -z "${TARGET_BRANCH}" ]; then
+    TARGET_BRANCH="master"
+fi
+
+if [ "${GITHUB_REF}" != "refs/heads/${TARGET_BRANCH}" ]; then
+    echo "Current branch: ${GITHUB_REF}"
+    echo "Aborting deployment"
     exit 1
 fi
 
