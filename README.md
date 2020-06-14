@@ -2,7 +2,7 @@
 
 A GitHub Action to deploy to Firebase Hosting
 
-- This action only deploys the `master` branch
+- You can choose a specific branch to allow deployment by using the `TARGET_BRANCH` env var (`master` if not specified).
 - Make sure you have the `firebase.json` file in the repository
 - Get the Firebase token by running `firebase login:ci` and [store it](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) as the `FIREBASE_TOKEN` secret
 - Set the project name in the `FIREBASE_PROJECT` env var
@@ -14,7 +14,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-    - master
+    - main
 jobs:
   main:
     name: Build and Deploy
@@ -25,8 +25,9 @@ jobs:
     - name: Build Hugo
       uses: lowply/build-hugo@v0.68.3
     - name: Deploy to Firebase
-      uses: lowply/deploy-firebase@v0.0.2
+      uses: lowply/deploy-firebase@v0.0.3
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         FIREBASE_PROJECT: name-of-the-project
+        TARGET_BRANCH: main
 ```
