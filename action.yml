@@ -3,7 +3,7 @@ author: 'Sho Mizutani <lowply@github.com>'
 description: 'A GitHub Action to deploy to Firebase Hosting'
 runs:
   using: 'node12'
-  image: 'main.js'
+  main: 'main.js'
 branding:
   icon: 'cloud'
   color: 'red'
