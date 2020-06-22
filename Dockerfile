@@ -1,4 +1,5 @@
-FROM node:10-slim
-RUN npm install -g firebase-tools
+FROM debian:buster-slim
+RUN apt-get update && apt-get -y install curl sudo
+RUN curl -sL https://firebase.tools | bash
 COPY entrypoint.sh /usr/local/bin
 ENTRYPOINT ["entrypoint.sh"]
