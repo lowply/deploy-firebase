@@ -1,25 +1,6 @@
 {
-  "name": "deploy-firebase",
-  "version": "0.0.5",
-  "description": "A GitHub Action to deploy to Firebase Hosting",
-  "main": "main.js",
   "dependencies": {
     "@actions/core": "^1.2.4",
     "firebase-tools": "^8.4.3"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lowply/deploy-firebase.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lowply/deploy-firebase/issues"
-  },
-  "homepage": "https://github.com/lowply/deploy-firebase#readme"
+  }
 }
