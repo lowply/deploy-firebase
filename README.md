@@ -1,11 +1,11 @@
 # Deploy to Firebase
 
-A GitHub Action to deploy to Firebase Hosting
+A GitHub Action to deploy to Firebase Hosting.
 
-- Make sure you checkout the branch or tag that you want to deploy using the [actions/checkout](https://github.com/actions/checkout) action
-- Make sure you have the `firebase.json` file in the repository
-- Get the Firebase token by running `firebase login:ci` and [store it](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) as the `FIREBASE_TOKEN` secret
-- Set the project name in the `FIREBASE_PROJECT` env var
+- Make sure that you checkout the repository using the [actions/checkout](https://github.com/actions/checkout) action
+- Make sure that you have the `firebase.json` file in the repository
+- To obtain the Firebase token, run `firebase login:ci` on your local computer and [store the token](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) as the `FIREBASE_TOKEN` secret
+- Specify the Firebase project name in the `FIREBASE_PROJECT` env var
 
 ## Workflow examples
 
