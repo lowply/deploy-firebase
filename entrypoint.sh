@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -z "${FIREBASE_TOKEN}" ]; then
     echo "FIREBASE_TOKEN is missing"
@@ -10,17 +10,7 @@ if [ -z "${FIREBASE_PROJECT}" ]; then
     exit 1
 fi
 
-if [ -z "${TARGET_BRANCH}" ]; then
-    TARGET_BRANCH="master"
-fi
-
-if [ "${GITHUB_REF}" != "refs/heads/${TARGET_BRANCH}" ]; then
-    echo "Current branch: ${GITHUB_REF}"
-    echo "Aborting deployment"
-    exit 1
-fi
-
 firebase deploy \
-    -m "${GITHUB_SHA}" \
+    -m "${GITHUB_REF} (${GITHUB_SHA})" \
     --project ${FIREBASE_PROJECT} \
     --only hosting
